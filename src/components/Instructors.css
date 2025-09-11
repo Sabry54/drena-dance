@@ -1,0 +1,256 @@
+/* Instructors Section */
+.instructors {
+  padding: var(--section-padding);
+  background: var(--dark-bg);
+  color: var(--text-light);
+}
+
+.instructors .section-header h2 {
+  color: var(--text-light);
+}
+
+.instructors .section-header p {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.instructors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+  margin-top: 60px;
+}
+
+.instructor-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition-smooth);
+  position: relative;
+}
+
+.instructor-card:hover {
+  transform: translateY(-15px);
+  border-color: var(--primary-red);
+  box-shadow: 0 20px 50px rgba(200, 16, 46, 0.2);
+}
+
+.instructor-image {
+  position: relative;
+  height: 300px;
+  overflow: hidden;
+}
+
+.instructor-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition-smooth);
+}
+
+.instructor-card:hover .instructor-image img {
+  transform: scale(1.1);
+}
+
+.instructor-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(200, 16, 46, 0.8) 0%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  opacity: 0;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instructor-card:hover .instructor-overlay {
+  opacity: 1;
+}
+
+.social-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: var(--text-light);
+  font-size: 20px;
+  transition: var(--transition-smooth);
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  background: var(--accent-gold);
+  color: var(--text-dark);
+  transform: scale(1.1);
+}
+
+.instructor-content {
+  padding: 30px;
+}
+
+.instructor-content h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+.specialty {
+  font-size: 1.1rem;
+  color: var(--primary-red);
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.origin {
+  font-size: 0.9rem;
+  color: var(--accent-gold);
+  margin-bottom: 20px;
+}
+
+.instructor-info {
+  margin-bottom: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
+
+.info-item svg {
+  color: var(--primary-red);
+  font-size: 16px;
+}
+
+.bio {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+.achievements {
+  margin-bottom: 25px;
+}
+
+.achievements h4 {
+  font-size: 1rem;
+  color: var(--accent-gold);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.achievements ul {
+  list-style: none;
+  padding: 0;
+}
+
+.achievements li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+}
+
+.achievements li svg {
+  color: var(--accent-gold);
+  font-size: 12px;
+}
+
+.instructor-rating {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stars {
+  display: flex;
+  gap: 5px;
+}
+
+.stars svg {
+  color: var(--accent-gold);
+  font-size: 16px;
+}
+
+.instructor-rating span {
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .instructors-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .instructor-image {
+    height: 250px;
+  }
+
+  .instructor-content {
+    padding: 20px;
+  }
+
+  .instructor-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .social-links {
+    gap: 15px;
+  }
+
+  .social-links a {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .instructor-image {
+    height: 200px;
+  }
+
+  .instructor-content {
+    padding: 15px;
+  }
+
+  .instructor-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .specialty {
+    font-size: 1rem;
+  }
+
+  .origin {
+    font-size: 0.8rem;
+  }
+}
