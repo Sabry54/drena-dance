@@ -94,7 +94,7 @@ const Contact = () => {
               <FaEnvelope className="info-icon" />
               <div>
                 <h4>Email</h4>
-                <p>contact@kizombaclub.fr</p>
+                <p>contact@drenadance.fr</p>
               </div>
             </div>
 

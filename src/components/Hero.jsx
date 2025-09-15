@@ -26,7 +26,9 @@ const Hero = () => {
             >
               Découvrez la <span className="highlight">Kizomba</span>
               <br />
-              <span className="subtitle">Danse Sensuelle d'Angola</span>
+              <span className="subtitle">
+                Drena Dance - Danse Sensuelle d'Angola
+              </span>
             </motion.h1>
 
             <motion.p
@@ -35,10 +37,10 @@ const Hero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              Plongez dans l'univers envoûtant de la Kizomba, cette danse
-              angolaise qui allie sensualité, connexion et passion. Rejoignez
-              notre communauté de danseurs passionnés et découvrez l'art de la
-              connexion parfaite.
+              Plongez dans l'univers envoûtant de la Kizomba avec Drena Dance,
+              cette danse angolaise qui allie sensualité, connexion et passion.
+              Rejoignez notre communauté de danseurs passionnés et découvrez
+              l'art de la connexion parfaite.
             </motion.p>
 
             <motion.div

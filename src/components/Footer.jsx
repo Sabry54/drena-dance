@@ -24,11 +24,11 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h3>Kizomba Club</h3>
+            <h3>Drena Dance</h3>
             <p>
-              Découvrez la passion de la Kizomba dans une ambiance chaleureuse
-              et professionnelle. Rejoignez notre communauté de danseurs
-              passionnés.
+              Découvrez la passion de la Kizomba avec Drena Dance dans une
+              ambiance chaleureuse et professionnelle. Rejoignez notre
+              communauté de danseurs passionnés.
             </p>
             <div className="social-links">
               <a href="#" className="social-link">
@@ -120,7 +120,7 @@ const Footer = () => {
               </div>
               <div className="contact-item">
                 <FaEnvelope />
-                <span>contact@kizombaclub.fr</span>
+                <span>contact@drenadance.fr</span>
               </div>
             </div>
           </motion.div>
@@ -134,7 +134,7 @@ const Footer = () => {
           viewport={{ once: true }}
         >
           <div className="footer-bottom-content">
-            <p>&copy; {currentYear} Kizomba Club. Tous droits réservés.</p>
+            <p>&copy; {currentYear} Drena Dance. Tous droits réservés.</p>
             <div className="footer-links">
               <a href="#">Mentions légales</a>
               <a href="#">Politique de confidentialité</a>

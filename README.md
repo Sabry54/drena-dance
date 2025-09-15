@@ -1,6 +1,6 @@
-# Club de Danse Kizomba - Site Web React
+# Drena Dance Kizomba - Site Web React
 
-Un site web moderne et responsive pour un club de danse Kizomba, inspiré des couleurs du drapeau angolais.
+Un site web moderne et responsive pour Drena Dance, club de danse Kizomba, inspiré des couleurs du drapeau angolais.
 
 ## 🎨 Design
 
