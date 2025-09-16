@@ -84,29 +84,44 @@ const Header = () => {
     >
       <div className="container">
         <nav className="navbar">
+          <div className="navbar-left" />
+
           <motion.div className="nav-brand" whileHover={{ scale: 1.05 }}>
             <h1>Drena Dance</h1>
             <span className="brand-subtitle">Danse Angolaise</span>
           </motion.div>
 
-          <motion.button
-            className="hamburger"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            whileTap={{ scale: 0.95 }}
-            whileHover={{ scale: 1.05 }}
+          <div
+            className="navbar-right"
+            style={{ display: "flex", alignItems: "center", gap: 4 }}
           >
-            <div className="hamburger-lines">
-              <span
-                className={`line line1 ${isMenuOpen ? "active" : ""}`}
-              ></span>
-              <span
-                className={`line line2 ${isMenuOpen ? "active" : ""}`}
-              ></span>
-              <span
-                className={`line line3 ${isMenuOpen ? "active" : ""}`}
-              ></span>
-            </div>
-          </motion.button>
+            <button
+              className="menu-label"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Ouvrir le menu"
+            >
+              menu
+            </button>
+            <motion.button
+              className="hamburger"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.05 }}
+              aria-label="Bouton menu"
+            >
+              <div className="hamburger-lines">
+                <span
+                  className={`line line1 ${isMenuOpen ? "active" : ""}`}
+                ></span>
+                <span
+                  className={`line line2 ${isMenuOpen ? "active" : ""}`}
+                ></span>
+                <span
+                  className={`line line3 ${isMenuOpen ? "active" : ""}`}
+                ></span>
+              </div>
+            </motion.button>
+          </div>
 
           <ul className={`nav-menu ${isMenuOpen ? "active" : ""}`}>
             {navItems.map((item, index) => (

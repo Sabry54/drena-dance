@@ -50,26 +50,50 @@ const Hero = () => {
 
   return (
     <section id="accueil" className="hero">
-      <div className="hero-background">
-        <div className="hero-video" aria-hidden="true">
-          <iframe
-            className="hero-video-iframe"
-            ref={iframeRef}
-            src={videoSrc}
-            title="Kizomba background video"
-            frameBorder="0"
-            allow="autoplay; encrypted-media; picture-in-picture;"
-            allowFullScreen
-          ></iframe>
+      <div className="container">
+        <div className="hero-content two-col">
+          <div className="hero-left">
+            <h1 className="hero-title">
+              <span className="brand-flag">DRENA DANCE LUXEMBOURG</span>
+              <span className="title-sep"> — </span>
+              <span className="keyword keyword-1">KIZOMBA</span>
+              <span className="title-comma">, </span>
+              <span className="keyword keyword-2">SEMBA</span>
+              <span className="title-comma">, </span>
+              <span className="keyword keyword-3">AFRO</span>
+            </h1>
+            <p className="hero-description">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
+              vitae arcu at magna elementum luctus, sed ullamcorper risus.
+              Curabitur at sapien non mauris blandit vulputate. Integer commodo
+              sapien in lorem convallis, vitae posuere nunc ultricies.
+            </p>
+            <a href="#" className="btn btn-primary">
+              Découvrir Drena Dance
+            </a>
+          </div>
+          <div className="hero-right">
+            <div className="hero-video-box">
+              <iframe
+                className="hero-video-iframe"
+                ref={iframeRef}
+                src={videoSrc}
+                title="Kizomba background video"
+                frameBorder="0"
+                allow="autoplay; encrypted-media; picture-in-picture;"
+                allowFullScreen
+              ></iframe>
+              <button
+                className="sound-toggle-icon inside"
+                onClick={() => setIsMuted((v) => !v)}
+                aria-label={isMuted ? "Activer le son" : "Couper le son"}
+                title={isMuted ? "Activer le son" : "Couper le son"}
+              >
+                {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
+              </button>
+            </div>
+          </div>
         </div>
-        <button
-          className="sound-toggle-icon"
-          onClick={() => setIsMuted((v) => !v)}
-          aria-label={isMuted ? "Activer le son" : "Couper le son"}
-          title={isMuted ? "Activer le son" : "Couper le son"}
-        >
-          {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
-        </button>
       </div>
     </section>
   );

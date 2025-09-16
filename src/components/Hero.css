@@ -300,3 +300,107 @@
     font-size: 1.2rem;
   }
 }
+
+/* === Deux colonnes: texte gauche, vidéo droite === */
+.hero {
+  padding: 80px 0;
+}
+.hero-content.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 120px;
+}
+.hero-left {
+  color: var(--text-light);
+  padding-right: 40px;
+}
+.hero-right {
+  display: flex;
+  justify-content: center;
+  padding-left: 40px;
+}
+.hero-video-box {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+/* Iframe plein cadre (pas besoin de cover centré ici) */
+.hero-video-box .hero-video-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: none;
+}
+/* Icône son à l'intérieur du cadre vidéo */
+.sound-toggle-icon.inside {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 2;
+}
+@media (max-width: 1024px) {
+  .hero-content.two-col {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .hero-left {
+    padding-right: 0;
+  }
+  .hero-right {
+    order: -1;
+    padding-left: 0;
+  }
+}
+
+/* Couleurs marque drapeau angolais sur le titre */
+.brand-flag {
+  background: linear-gradient(90deg, #333333 0%, #c8102e 50%, #ffcd00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.title-sep,
+.title-comma {
+  color: var(--text-light);
+  opacity: 0.8;
+}
+
+/* Animation clignotement successif des mots-clés */
+.keyword {
+  display: inline-block;
+  color: var(--text-light);
+  animation: keywordBlink 2.1s linear infinite;
+}
+.keyword-1 {
+  animation-delay: 0s;
+}
+.keyword-2 {
+  animation-delay: 0.7s;
+}
+.keyword-3 {
+  animation-delay: 1.4s;
+}
+
+@keyframes keywordBlink {
+  0%,
+  20% {
+    opacity: 1;
+    text-shadow: 0 0 0 rgba(255, 205, 0, 0);
+  }
+  25%,
+  40% {
+    opacity: 0.25;
+    text-shadow: 0 0 10px rgba(255, 205, 0, 0.6);
+  }
+  45%,
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 0 rgba(255, 205, 0, 0);
+  }
+}
