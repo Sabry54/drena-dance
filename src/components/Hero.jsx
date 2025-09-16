@@ -1,102 +1,76 @@
-import React from "react";
-import { motion } from "framer-motion";
-import { FaPlay, FaHeart, FaUsers } from "react-icons/fa";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { FaVolumeUp, FaVolumeMute } from "react-icons/fa";
 
 const Hero = () => {
+  // ID de la vidéo YouTube (surchargé par ?vid=<ID> dans l'URL pour tests rapides)
+  const urlVideoId =
+    typeof window !== "undefined"
+      ? new URLSearchParams(window.location.search).get("vid")
+      : null;
+  const videoId =
+    urlVideoId && /^[\w-]{6,20}$/.test(urlVideoId) ? urlVideoId : "z8r9teZNWUo";
+
+  // Démarrer muet partout pour garantir l'autoplay (les navigateurs exigent le mute)
+  const [isMuted, setIsMuted] = useState(true);
+
+  const iframeRef = useRef(null);
+
+  // URL vidéo: autoplay + loop + playlist + jsapi, toujours muet au chargement
+  const videoSrc = useMemo(() => {
+    const base = `https://www.youtube.com/embed/${videoId}`;
+    const currentOrigin =
+      typeof window !== "undefined" ? window.location.origin : "";
+    const params = new URLSearchParams({
+      autoplay: "1",
+      mute: "1",
+      controls: "0",
+      loop: "1",
+      playlist: videoId,
+      modestbranding: "1",
+      rel: "0",
+      playsinline: "1",
+      enablejsapi: "1",
+      origin: currentOrigin,
+    }).toString();
+    return `${base}?${params}`;
+  }, [videoId]);
+
+  // Appliquer mute/unmute via postMessage, sans relancer la vidéo
+  useEffect(() => {
+    const iframe = iframeRef.current;
+    if (!iframe || !iframe.contentWindow) return;
+    const command = isMuted ? "mute" : "unMute";
+    const message = JSON.stringify({
+      event: "command",
+      func: command,
+      args: [],
+    });
+    iframe.contentWindow.postMessage(message, "*");
+  }, [isMuted]);
+
   return (
     <section id="accueil" className="hero">
       <div className="hero-background">
-        <div className="hero-overlay"></div>
-        <div className="hero-pattern"></div>
-      </div>
-
-      <div className="container">
-        <div className="hero-content">
-          <motion.div
-            className="hero-text"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <motion.h1
-              className="hero-title"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              Découvrez la <span className="highlight">Kizomba</span>
-              <br />
-              <span className="subtitle">
-                Drena Dance - Danse Sensuelle d'Angola
-              </span>
-            </motion.h1>
-
-            <motion.p
-              className="hero-description"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              Plongez dans l'univers envoûtant de la Kizomba avec Drena Dance,
-              cette danse angolaise qui allie sensualité, connexion et passion.
-              Rejoignez notre communauté de danseurs passionnés et découvrez
-              l'art de la connexion parfaite.
-            </motion.p>
-
-            <motion.div
-              className="hero-buttons"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              <a href="#cours" className="btn btn-primary">
-                <FaPlay className="btn-icon" />
-                Commencer maintenant
-              </a>
-              <a href="#professeurs" className="btn btn-secondary">
-                Découvrir nos professeurs
-              </a>
-            </motion.div>
-          </motion.div>
-
-          <motion.div
-            className="hero-stats"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 1 }}
-          >
-            <div className="stat-item">
-              <FaUsers className="stat-icon" />
-              <div className="stat-content">
-                <span className="stat-number">500+</span>
-                <span className="stat-label">Élèves</span>
-              </div>
-            </div>
-            <div className="stat-item">
-              <FaHeart className="stat-icon" />
-              <div className="stat-content">
-                <span className="stat-number">15+</span>
-                <span className="stat-label">Années d'expérience</span>
-              </div>
-            </div>
-            <div className="stat-item">
-              <FaPlay className="stat-icon" />
-              <div className="stat-content">
-                <span className="stat-number">50+</span>
-                <span className="stat-label">Cours par semaine</span>
-              </div>
-            </div>
-          </motion.div>
+        <div className="hero-video" aria-hidden="true">
+          <iframe
+            className="hero-video-iframe"
+            ref={iframeRef}
+            src={videoSrc}
+            title="Kizomba background video"
+            frameBorder="0"
+            allow="autoplay; encrypted-media; picture-in-picture;"
+            allowFullScreen
+          ></iframe>
         </div>
+        <button
+          className="sound-toggle-icon"
+          onClick={() => setIsMuted((v) => !v)}
+          aria-label={isMuted ? "Activer le son" : "Couper le son"}
+          title={isMuted ? "Activer le son" : "Couper le son"}
+        >
+          {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
+        </button>
       </div>
-
-      <motion.div
-        className="scroll-indicator"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <div className="scroll-arrow"></div>
-      </motion.div>
     </section>
   );
 };

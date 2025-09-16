@@ -1,7 +1,7 @@
 /* Hero Section */
 .hero {
   position: relative;
-  min-height: 100vh;
+  height: 100dvh; /* évite le dépassement sur mobile, utilise la hauteur viewport dynamique */
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -22,53 +22,65 @@
   z-index: 1;
 }
 
-.hero-overlay {
+/* Wrapper vidéo plein écran (cover) */
+.hero-video {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(200, 16, 46, 0.1) 0%,
-    rgba(0, 0, 0, 0.7) 50%,
-    rgba(255, 205, 0, 0.1) 100%
-  );
+  inset: 0; /* remplit toute la section */
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  /* Laisser les interactions globales, mais on désactive sur l'iframe pour cliquer le bouton */
+}
+
+.hero-video-iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+  border: 0;
+  pointer-events: none; /* l'iframe ne capte pas les clics, le bouton reste cliquable */
+}
+
+/* Icône sonore bas-droite */
+.sound-toggle-icon {
+  position: fixed; /* toujours visible même si le contenu scroll */
+  left: 16px;
+  bottom: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  z-index: 1000; /* au-dessus de tout le Hero */
+  pointer-events: auto; /* réactive l'interaction sur le bouton */
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.sound-toggle-icon:hover {
+  transform: scale(1.05);
+  background: rgba(200, 16, 46, 0.7);
+  border-color: var(--primary-red);
+}
+
+.hero-overlay {
+  display: none;
 }
 
 .hero-pattern {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: radial-gradient(
-      circle at 20% 50%,
-      rgba(200, 16, 46, 0.1) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 80% 20%,
-      rgba(255, 205, 0, 0.1) 0%,
-      transparent 50%
-    ),
-    radial-gradient(
-      circle at 40% 80%,
-      rgba(200, 16, 46, 0.05) 0%,
-      transparent 50%
-    );
-  animation: float 20s ease-in-out infinite;
+  display: none;
 }
 
 .hero-content {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-  min-height: 100vh;
-  padding: 100px 0 50px;
+  display: none;
 }
 
 .hero-text {
@@ -123,6 +135,24 @@
   gap: 30px;
 }
 
+/* Bouton bascule du son */
+.sound-toggle {
+  align-self: flex-start;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  font-weight: 600;
+}
+
+.sound-toggle:hover {
+  background: rgba(200, 16, 46, 0.6);
+  border-color: var(--primary-red);
+}
+
 .stat-item {
   display: flex;
   align-items: center;
@@ -165,11 +195,7 @@
 }
 
 .scroll-indicator {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
+  display: none;
 }
 
 .scroll-arrow {
