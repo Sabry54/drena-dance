@@ -310,16 +310,16 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 120px;
+  gap: 32px;
 }
 .hero-left {
   color: var(--text-light);
-  padding-right: 40px;
+  padding: 0 16px;
 }
 .hero-right {
   display: flex;
   justify-content: center;
-  padding-left: 40px;
+  padding: 0 16px;
 }
 .hero-video-box {
   position: relative;

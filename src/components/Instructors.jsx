@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import {
   FaInstagram,
@@ -9,69 +9,75 @@ import {
   FaHeart,
 } from "react-icons/fa";
 
+import { useTranslation } from "react-i18next";
+
 const Instructors = () => {
-  const instructors = [
-    {
-      id: 1,
-      name: "Carlos Mendes",
-      specialty: "Kizomba & Semba",
-      experience: "15 ans",
-      origin: "Luanda, Angola",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop&crop=face",
-      bio: "Originaire de Luanda, Carlos a grandi avec la Kizomba dans les rues d'Angola. Champion national de danse, il transmet avec passion l'authenticité de cette danse.",
-      achievements: [
-        "Champion Angola 2018",
-        "Formateur certifié",
-        "500+ élèves formés",
-      ],
-      social: {
-        instagram: "#",
-        facebook: "#",
-        youtube: "#",
+  const { t, i18n } = useTranslation();
+  const instructors = useMemo(
+    () => [
+      {
+        id: 1,
+        name: t("instructors.items.1.name"),
+        specialty: t("instructors.items.1.specialty"),
+        experience: t("instructors.items.1.experience"),
+        origin: t("instructors.items.1.origin"),
+        image:
+          "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=400&fit=crop&crop=face",
+        bio: t("instructors.items.1.bio"),
+        achievements: [
+          t("instructors.items.1.achievements.0"),
+          t("instructors.items.1.achievements.1"),
+          t("instructors.items.1.achievements.2"),
+        ],
+        social: {
+          instagram: "#",
+          facebook: "#",
+          youtube: "#",
+        },
       },
-    },
-    {
-      id: 2,
-      name: "Isabella Santos",
-      specialty: "Kizomba Sensuelle",
-      experience: "12 ans",
-      origin: "Lisbonne, Portugal",
-      image:
-        "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=400&fit=crop&crop=face",
-      bio: "Isabella a découvert la Kizomba à Lisbonne et s'est spécialisée dans l'aspect sensuel et artistique de la danse. Elle enseigne la connexion et l'expression.",
-      achievements: [
-        "Championne Europe 2019",
-        "Spécialiste connexion",
-        "Artiste chorégraphe",
-      ],
-      social: {
-        instagram: "#",
-        facebook: "#",
-        youtube: "#",
+      {
+        id: 2,
+        name: t("instructors.items.2.name"),
+        specialty: t("instructors.items.2.specialty"),
+        experience: t("instructors.items.2.experience"),
+        origin: t("instructors.items.2.origin"),
+        image:
+          "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=400&fit=crop&crop=face",
+        bio: t("instructors.items.2.bio"),
+        achievements: [
+          t("instructors.items.2.achievements.0"),
+          t("instructors.items.2.achievements.1"),
+          t("instructors.items.2.achievements.2"),
+        ],
+        social: {
+          instagram: "#",
+          facebook: "#",
+          youtube: "#",
+        },
       },
-    },
-    {
-      id: 3,
-      name: "Miguel Rodrigues",
-      specialty: "Semba Traditionnel",
-      experience: "18 ans",
-      origin: "Benguela, Angola",
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=400&fit=crop&crop=face",
-      bio: "Miguel est un gardien de la tradition. Il enseigne le Semba authentique tel qu'il se danse dans les quartiers populaires d'Angola.",
-      achievements: [
-        "Maître Semba",
-        "Préservateur culturel",
-        "Historien de la danse",
-      ],
-      social: {
-        instagram: "#",
-        facebook: "#",
-        youtube: "#",
+      {
+        id: 3,
+        name: t("instructors.items.3.name"),
+        specialty: t("instructors.items.3.specialty"),
+        experience: t("instructors.items.3.experience"),
+        origin: t("instructors.items.3.origin"),
+        image:
+          "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=400&fit=crop&crop=face",
+        bio: t("instructors.items.3.bio"),
+        achievements: [
+          t("instructors.items.3.achievements.0"),
+          t("instructors.items.3.achievements.1"),
+          t("instructors.items.3.achievements.2"),
+        ],
+        social: {
+          instagram: "#",
+          facebook: "#",
+          youtube: "#",
+        },
       },
-    },
-  ];
+    ],
+    [i18n.language]
+  );
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -106,11 +112,8 @@ const Instructors = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2>Nos Maîtres de Danse</h2>
-          <p>
-            Des professeurs passionnés et expérimentés pour vous guider dans
-            l'art de la Kizomba
-          </p>
+          <h2>{t("instructors.title")}</h2>
+          <p>{t("instructors.subtitle")}</p>
         </motion.div>
 
         <motion.div
@@ -162,7 +165,7 @@ const Instructors = () => {
                 <p className="bio">{instructor.bio}</p>
 
                 <div className="achievements">
-                  <h4>Réalisations</h4>
+                  <h4>{t("instructors.achievements")}</h4>
                   <ul>
                     {instructor.achievements.map((achievement, index) => (
                       <li key={index}>
@@ -179,7 +182,7 @@ const Instructors = () => {
                       <FaHeart key={i} />
                     ))}
                   </div>
-                  <span>5.0/5</span>
+                  <span>{t("instructors.rating")}</span>
                 </div>
               </div>
             </motion.div>

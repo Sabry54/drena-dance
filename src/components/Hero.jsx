@@ -1,7 +1,9 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { FaVolumeUp, FaVolumeMute } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const Hero = () => {
+  const { t } = useTranslation();
   // ID de la vidéo YouTube (surchargé par ?vid=<ID> dans l'URL pour tests rapides)
   const urlVideoId =
     typeof window !== "undefined"
@@ -62,14 +64,9 @@ const Hero = () => {
               <span className="title-comma">, </span>
               <span className="keyword keyword-3">AFRO</span>
             </h1>
-            <p className="hero-description">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
-              vitae arcu at magna elementum luctus, sed ullamcorper risus.
-              Curabitur at sapien non mauris blandit vulputate. Integer commodo
-              sapien in lorem convallis, vitae posuere nunc ultricies.
-            </p>
+            <p className="hero-description">{t("hero.description")}</p>
             <a href="#" className="btn btn-primary">
-              Découvrir Drena Dance
+              {t("hero.button")}
             </a>
           </div>
           <div className="hero-right">
@@ -86,8 +83,8 @@ const Hero = () => {
               <button
                 className="sound-toggle-icon inside"
                 onClick={() => setIsMuted((v) => !v)}
-                aria-label={isMuted ? "Activer le son" : "Couper le son"}
-                title={isMuted ? "Activer le son" : "Couper le son"}
+                aria-label={isMuted ? t("hero.sound_on") : t("hero.sound_off")}
+                title={isMuted ? t("hero.sound_on") : t("hero.sound_off")}
               >
                 {isMuted ? <FaVolumeMute /> : <FaVolumeUp />}
               </button>

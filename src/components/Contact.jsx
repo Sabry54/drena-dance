@@ -11,7 +11,10 @@ import {
   FaPaperPlane,
 } from "react-icons/fa";
 
+import { useTranslation } from "react-i18next";
+
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -53,11 +56,8 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2>Rejoignez Notre Communauté</h2>
-          <p>
-            Prêt à découvrir la magie de la Kizomba ? Contactez-nous dès
-            maintenant !
-          </p>
+          <h2>{t("contact.title")}</h2>
+          <p>{t("contact.subtitle")}</p>
         </motion.div>
 
         <div className="contact-content">
@@ -68,12 +68,12 @@ const Contact = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3>Informations de Contact</h3>
+            <h3>{t("contact.info.title")}</h3>
 
             <div className="info-item">
               <FaMapMarkerAlt className="info-icon" />
               <div>
-                <h4>Adresse</h4>
+                <h4>{t("contact.info.address")}</h4>
                 <p>
                   123 Rue de la Danse
                   <br />
@@ -85,7 +85,7 @@ const Contact = () => {
             <div className="info-item">
               <FaPhone className="info-icon" />
               <div>
-                <h4>Téléphone</h4>
+                <h4>{t("contact.info.phone")}</h4>
                 <p>+33 1 23 45 67 89</p>
               </div>
             </div>
@@ -93,7 +93,7 @@ const Contact = () => {
             <div className="info-item">
               <FaEnvelope className="info-icon" />
               <div>
-                <h4>Email</h4>
+                <h4>{t("contact.info.email")}</h4>
                 <p>contact@drenadance.fr</p>
               </div>
             </div>
@@ -101,7 +101,7 @@ const Contact = () => {
             <div className="info-item">
               <FaClock className="info-icon" />
               <div>
-                <h4>Horaires</h4>
+                <h4>{t("contact.info.hours")}</h4>
                 <p>
                   Lun - Ven: 18h00 - 22h00
                   <br />
@@ -111,7 +111,7 @@ const Contact = () => {
             </div>
 
             <div className="social-links">
-              <h4>Suivez-nous</h4>
+              <h4>{t("contact.follow")}</h4>
               <div className="social-icons">
                 <a href="#" className="social-link">
                   <FaInstagram />
@@ -134,13 +134,13 @@ const Contact = () => {
             viewport={{ once: true }}
           >
             <form className="contact-form" onSubmit={handleSubmit}>
-              <h3>Inscrivez-vous à un cours</h3>
+              <h3>{t("contact.form.title")}</h3>
 
               <div className="form-group">
                 <input
                   type="text"
                   name="name"
-                  placeholder="Votre nom complet"
+                  placeholder={t("contact.form.name")}
                   value={formData.name}
                   onChange={handleChange}
                   required
@@ -151,7 +151,7 @@ const Contact = () => {
                 <input
                   type="email"
                   name="email"
-                  placeholder="Votre email"
+                  placeholder={t("contact.form.email")}
                   value={formData.email}
                   onChange={handleChange}
                   required
@@ -162,7 +162,7 @@ const Contact = () => {
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="Votre téléphone"
+                  placeholder={t("contact.form.phone")}
                   value={formData.phone}
                   onChange={handleChange}
                 />
@@ -175,7 +175,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                 >
-                  <option value="">Sélectionnez un cours</option>
+                  <option value="">{t("contact.form.select_course")}</option>
                   {courses.map((course, index) => (
                     <option key={index} value={course}>
                       {course}
@@ -187,7 +187,7 @@ const Contact = () => {
               <div className="form-group">
                 <textarea
                   name="message"
-                  placeholder="Votre message (optionnel)"
+                  placeholder={t("contact.form.message")}
                   rows="4"
                   value={formData.message}
                   onChange={handleChange}
@@ -201,7 +201,7 @@ const Contact = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <FaPaperPlane />
-                Envoyer ma demande
+                {t("contact.form.submit")}
               </motion.button>
             </form>
           </motion.div>
@@ -216,7 +216,7 @@ const Contact = () => {
         >
           <div className="map-placeholder">
             <FaMapMarkerAlt className="map-icon" />
-            <p>Notre studio de danse au cœur de Paris</p>
+            <p>{t("contact.map.caption")}</p>
           </div>
         </motion.div>
       </div>

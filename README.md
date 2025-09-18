@@ -1,3 +1,24 @@
+Internationalisation (i18n)
+---------------------------
+
+Règle KISS pour tous les textes (actuels et futurs):
+
+- Toujours afficher les textes via `t('cle')` (hook `useTranslation`) et jamais en dur.
+- Ajouter la clé dans `src/i18n.js` pour `fr`, `en`, `pt`.
+- Ne pas utiliser de ternaires basés sur `i18n.language`; passer par des clés.
+- Dès qu’un nouveau texte est ajouté, créer sa clé dans `src/i18n.js`.
+
+Exemple:
+
+```jsx
+import { useTranslation } from 'react-i18next';
+
+const MyComponent = () => {
+  const { t } = useTranslation();
+  return <h2>{t('my.feature.title')}</h2>;
+}
+```
+
 # Drena Dance Kizomba - Site Web React
 
 Un site web moderne et responsive pour Drena Dance, club de danse Kizomba, inspiré des couleurs du drapeau angolais.

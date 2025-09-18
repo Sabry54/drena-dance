@@ -1,77 +1,84 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import { FaClock, FaUsers, FaStar, FaArrowRight } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const Courses = () => {
-  const courses = [
-    {
-      id: 1,
-      title: "Kizomba Débutant",
-      description:
-        "Découvrez les bases de la Kizomba avec nos professeurs expérimentés. Apprenez les pas fondamentaux et la connexion avec votre partenaire.",
-      price: "45€",
-      duration: "1h30",
-      level: "Débutant",
-      students: "8-12",
-      image:
-        "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400&h=300&fit=crop&crop=center",
-      features: [
-        "Pas de base",
-        "Connexion",
-        "Musique angolaise",
-        "Technique de guidage",
-      ],
-    },
-    {
-      id: 2,
-      title: "Kizomba Intermédiaire",
-      description:
-        "Perfectionnez votre technique et explorez des figures plus complexes. Développez votre style personnel et votre musicalité.",
-      price: "50€",
-      duration: "1h30",
-      level: "Intermédiaire",
-      students: "6-10",
-      image:
-        "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=400&h=300&fit=crop&crop=center",
-      features: [
-        "Figures avancées",
-        "Musicalité",
-        "Style personnel",
-        "Improvisation",
-      ],
-    },
-    {
-      id: 3,
-      title: "Kizomba Avancé",
-      description:
-        "Maîtrisez l'art de la Kizomba avec des techniques professionnelles. Développez votre créativité et votre expression artistique.",
-      price: "55€",
-      duration: "2h",
-      level: "Avancé",
-      students: "4-8",
-      image:
-        "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop&crop=center",
-      features: ["Techniques pro", "Créativité", "Expression", "Chorégraphies"],
-    },
-    {
-      id: 4,
-      title: "Semba Traditionnel",
-      description:
-        "Explorez les racines de la Kizomba avec le Semba, la danse traditionnelle angolaise. Découvrez l'histoire et la culture.",
-      price: "40€",
-      duration: "1h30",
-      level: "Tous niveaux",
-      students: "10-15",
-      image:
-        "https://images.unsplash.com/photo-1518611012118-460560d0b4b0?w=400&h=300&fit=crop&crop=center",
-      features: [
-        "Culture angolaise",
-        "Histoire",
-        "Tradition",
-        "Musique authentique",
-      ],
-    },
-  ];
+  const { t, i18n } = useTranslation();
+
+  const courses = useMemo(
+    () => [
+      {
+        id: 1,
+        title: t("courses.items.1.title"),
+        description: t("courses.items.1.description"),
+        price: "45€",
+        duration: "1h30",
+        level: t("courses.items.1.level"),
+        students: "8-12",
+        image:
+          "https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=400&h=300&fit=crop&crop=center",
+        features: [
+          t("courses.items.1.features.0"),
+          t("courses.items.1.features.1"),
+          t("courses.items.1.features.2"),
+          t("courses.items.1.features.3"),
+        ],
+      },
+      {
+        id: 2,
+        title: t("courses.items.2.title"),
+        description: t("courses.items.2.description"),
+        price: "50€",
+        duration: "1h30",
+        level: t("courses.items.2.level"),
+        students: "6-10",
+        image:
+          "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?w=400&h=300&fit=crop&crop=center",
+        features: [
+          t("courses.items.2.features.0"),
+          t("courses.items.2.features.1"),
+          t("courses.items.2.features.2"),
+          t("courses.items.2.features.3"),
+        ],
+      },
+      {
+        id: 3,
+        title: t("courses.items.3.title"),
+        description: t("courses.items.3.description"),
+        price: "55€",
+        duration: "2h",
+        level: t("courses.items.3.level"),
+        students: "4-8",
+        image:
+          "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop&crop=center",
+        features: [
+          t("courses.items.3.features.0"),
+          t("courses.items.3.features.1"),
+          t("courses.items.3.features.2"),
+          t("courses.items.3.features.3"),
+        ],
+      },
+      {
+        id: 4,
+        title: t("courses.items.4.title"),
+        description: t("courses.items.4.description"),
+        price: "40€",
+        duration: "1h30",
+        level: t("courses.items.4.level"),
+        students: "10-15",
+        image:
+          "https://images.unsplash.com/photo-1518611012118-460560d0b4b0?w=400&h=300&fit=crop&crop=center",
+        features: [
+          t("courses.items.4.features.0"),
+          t("courses.items.4.features.1"),
+          t("courses.items.4.features.2"),
+          t("courses.items.4.features.3"),
+        ],
+      },
+    ],
+    [i18n.language]
+  );
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -105,10 +112,8 @@ const Courses = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2>Nos Cours de Kizomba</h2>
-          <p>
-            Découvrez notre gamme complète de cours adaptés à tous les niveaux
-          </p>
+          <h2>{t("courses.title")}</h2>
+          <p>{t("courses.subtitle")}</p>
         </motion.div>
 
         <motion.div
@@ -145,7 +150,9 @@ const Courses = () => {
                   </div>
                   <div className="info-item">
                     <FaUsers />
-                    <span>{course.students} élèves</span>
+                    <span>
+                      {course.students} {t("courses.students_suffix")}
+                    </span>
                   </div>
                 </div>
 
@@ -159,7 +166,7 @@ const Courses = () => {
                 </ul>
 
                 <a href="#contact" className="course-btn">
-                  S'inscrire
+                  {t("courses.enroll")}
                   <FaArrowRight />
                 </a>
               </div>
