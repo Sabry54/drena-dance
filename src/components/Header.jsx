@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 const Header = () => {
+  const { t, i18n } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -60,11 +63,26 @@ const Header = () => {
       window.removeEventListener("scroll", handleScroll, scrollOptions);
   }, [lastScrollY]);
 
+  // Fermer le menu déroulant de langue quand on clique ailleurs
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        isLanguageDropdownOpen &&
+        !event.target.closest(".language-dropdown")
+      ) {
+        setIsLanguageDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isLanguageDropdownOpen]);
+
   const navItems = [
-    { name: "Accueil", href: "#accueil" },
-    { name: "Cours", href: "#cours" },
-    { name: "Professeurs", href: "#professeurs" },
-    { name: "Contact", href: "#contact" },
+    { name: t("home"), href: "#accueil" },
+    { name: t("courses"), href: "#cours" },
+    { name: t("instructors"), href: "#professeurs" },
+    { name: t("contact"), href: "#contact" },
   ];
 
   return (
@@ -84,23 +102,146 @@ const Header = () => {
     >
       <div className="container">
         <nav className="navbar">
-          <div className="navbar-left" />
+          <div className="navbar-left">
+            {/* Sélecteur de langue desktop (icônes images pour compatibilité Windows) */}
+            <div className="language-switcher desktop-only">
+              <div className="flags-container">
+                <span
+                  className={`flag-btn ${
+                    i18n.language === "fr" ? "active" : ""
+                  }`}
+                  onClick={() => i18n.changeLanguage("fr")}
+                  title="Français"
+                  style={{ cursor: "pointer" }}
+                >
+                  <img
+                    className="flag-icon"
+                    src="https://flagcdn.com/w20/fr.png"
+                    srcSet="https://flagcdn.com/w40/fr.png 2x"
+                    width="20"
+                    height="15"
+                    alt="Français"
+                    loading="lazy"
+                  />
+                </span>
+                <span
+                  className={`flag-btn ${
+                    i18n.language === "en" ? "active" : ""
+                  }`}
+                  onClick={() => i18n.changeLanguage("en")}
+                  title="English"
+                  style={{ cursor: "pointer" }}
+                >
+                  <img
+                    className="flag-icon"
+                    src="https://flagcdn.com/w20/gb.png"
+                    srcSet="https://flagcdn.com/w40/gb.png 2x"
+                    width="20"
+                    height="15"
+                    alt="English"
+                    loading="lazy"
+                  />
+                </span>
+                <span
+                  className={`flag-btn ${
+                    i18n.language === "pt" ? "active" : ""
+                  }`}
+                  onClick={() => i18n.changeLanguage("pt")}
+                  title="Português"
+                  style={{ cursor: "pointer" }}
+                >
+                  <img
+                    className="flag-icon"
+                    src="https://flagcdn.com/w20/pt.png"
+                    srcSet="https://flagcdn.com/w40/pt.png 2x"
+                    width="20"
+                    height="15"
+                    alt="Português"
+                    loading="lazy"
+                  />
+                </span>
+              </div>
+            </div>
+
+            {/* Sélecteur de langue mobile - menu déroulant */}
+            <div className="language-dropdown mobile-only">
+              <button
+                className="language-dropdown-trigger"
+                onClick={() =>
+                  setIsLanguageDropdownOpen(!isLanguageDropdownOpen)
+                }
+              >
+                {i18n.language === "fr"
+                  ? "🇫🇷"
+                  : i18n.language === "en"
+                  ? "🇬🇧"
+                  : "🇵🇹"}
+                <span className="dropdown-arrow">▼</span>
+              </button>
+              {isLanguageDropdownOpen && (
+                <div className="language-dropdown-menu">
+                  <button
+                    className={`dropdown-item ${
+                      i18n.language === "fr" ? "active" : ""
+                    }`}
+                    onClick={() => {
+                      i18n.changeLanguage("fr");
+                      setIsLanguageDropdownOpen(false);
+                    }}
+                  >
+                    🇫🇷 Français
+                  </button>
+                  <button
+                    className={`dropdown-item ${
+                      i18n.language === "en" ? "active" : ""
+                    }`}
+                    onClick={() => {
+                      i18n.changeLanguage("en");
+                      setIsLanguageDropdownOpen(false);
+                    }}
+                  >
+                    🇬🇧 English
+                  </button>
+                  <button
+                    className={`dropdown-item ${
+                      i18n.language === "pt" ? "active" : ""
+                    }`}
+                    onClick={() => {
+                      i18n.changeLanguage("pt");
+                      setIsLanguageDropdownOpen(false);
+                    }}
+                  >
+                    🇵🇹 Português
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
 
           <motion.div className="nav-brand" whileHover={{ scale: 1.05 }}>
-            <h1>Drena Dance</h1>
-            <span className="brand-subtitle">Danse Angolaise</span>
+            <a
+              href="#accueil"
+              className="brand-link"
+              aria-label="Accueil Drena Dance"
+            >
+              <img
+                src="/images/logo_drena_3.png"
+                alt="Drena Dance Luxembourg"
+                className="brand-logo"
+              />
+            </a>
           </motion.div>
 
           <div
             className="navbar-right"
-            style={{ display: "flex", alignItems: "center", gap: 4 }}
+            style={{ display: "flex", alignItems: "center", gap: 8 }}
           >
             <button
               className="menu-label"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Ouvrir le menu"
             >
-              menu
+              {t("menu")}
             </button>
             <motion.button
               className="hamburger"

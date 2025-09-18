@@ -35,12 +35,13 @@
   justify-self: center;
   text-align: center;
 }
-.nav-brand h1 {
-  margin: 0;
+.brand-link {
+  display: inline-block;
 }
-.brand-subtitle {
+.brand-logo {
+  height: 88px;
+  width: auto;
   display: block;
-  margin-top: -3px;
 }
 
 .nav-menu {
@@ -156,6 +157,125 @@
   background: var(--text-light);
 }
 
+/* Sélecteur de langue - Desktop */
+.language-switcher.desktop-only {
+  display: flex;
+  align-items: center;
+}
+
+.language-switcher .flags-container {
+  display: flex;
+  gap: 8px;
+}
+
+.flag-btn {
+  padding: 2px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flag-btn:hover {
+  transform: scale(1.2);
+}
+
+.flag-btn.active {
+  transform: scale(1.3);
+  opacity: 0.8;
+}
+
+/* Icônes drapeaux (desktop) */
+.flag-icon {
+  display: block;
+  width: 20px;
+  height: 15px;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25);
+}
+
+/* Sélecteur de langue - Mobile (menu déroulant) */
+.language-dropdown.mobile-only {
+  position: relative;
+}
+
+.language-dropdown-trigger {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--text-light);
+  font-size: 18px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 60px;
+  height: 40px;
+}
+
+.language-dropdown-trigger:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  transition: transform 0.3s ease;
+}
+
+.language-dropdown-trigger:hover .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.language-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: linear-gradient(135deg, var(--primary-red), var(--secondary-red));
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  min-width: 140px;
+  overflow: hidden;
+}
+
+.dropdown-item {
+  background: transparent;
+  border: none;
+  color: var(--text-light);
+  font-size: 14px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.dropdown-item.active {
+  background: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+}
+
+/* Classes utilitaires pour responsive */
+.desktop-only {
+  display: block !important;
+}
+
+.mobile-only {
+  display: none !important;
+}
+
 /* Petit libellé "menu" à gauche du burger */
 .menu-label {
   background: transparent;
@@ -174,6 +294,17 @@
   background: rgba(255, 255, 255, 0.12);
 }
 
+/* Desktop - s'assurer que les drapeaux sont visibles */
+@media (min-width: 769px) {
+  .desktop-only {
+    display: block !important;
+  }
+
+  .mobile-only {
+    display: none !important;
+  }
+}
+
 /* Mobile Menu */
 @media (max-width: 768px) {
   .nav-menu {
@@ -187,8 +318,22 @@
     font-size: 18px;
     padding: 18px 20px;
   }
-  .nav-brand h1 {
-    font-size: 24px;
+  .brand-logo {
+    height: 72px;
+  }
+
+  /* Affichage responsive des sélecteurs de langue */
+  .desktop-only {
+    display: none !important;
+  }
+
+  .mobile-only {
+    display: block !important;
+  }
+
+  /* Cacher le libellé "menu" sur mobile */
+  .menu-label {
+    display: none;
   }
 }
 
@@ -196,10 +341,7 @@
   .navbar {
     padding: 10px 0;
   }
-  .nav-brand h1 {
-    font-size: 20px;
-  }
-  .brand-subtitle {
-    font-size: 10px;
+  .brand-logo {
+    height: 64px;
   }
 }
