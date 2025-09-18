@@ -127,6 +127,18 @@ const resources = {
       "pages.histoire.title": "L'histoire de Drena Dance",
       "pages.histoire.intro":
         "Découvrez les origines, les valeurs et l'évolution de notre club.",
+      "pages.histoire.professor_title": "Le Professeur",
+      "pages.histoire.professor_description":
+        "Notre professeur principal, passionné de danse africaine depuis plus de 10 ans, transmet avec passion l'art de la Kizomba, du Semba et des danses afro. Sa pédagogie bienveillante et son expertise technique permettent à chaque élève de progresser à son rythme dans une ambiance chaleureuse et conviviale.",
+      "pages.histoire.professor_alt": "Professeur de danse Drena Dance",
+      "pages.histoire.photos_title": "Nos Moments de Danse",
+      "pages.histoire.marcio_title":
+        "Tout part d'un homme : Marcio Adilson Junqueira",
+      "pages.histoire.loading": "Chargement des photos...",
+      "pages.histoire.no_photos_found":
+        "Aucune photo trouvée dans le dossier /images/histoire/",
+      "pages.histoire.add_photos_instruction":
+        "Ajoutez vos photos dans le dossier public/images/histoire/",
       "pages.meninos.title": "Meninos do Semba",
       "pages.meninos.intro":
         "Un hommage à la culture angolaise et aux racines du Semba.",
@@ -296,7 +308,19 @@ const resources = {
       // Pages
       "pages.histoire.title": "The Story of Drena Dance",
       "pages.histoire.intro":
-        "Discover our club’s origins, values and evolution.",
+        "Discover our club's origins, values and evolution.",
+      "pages.histoire.professor_title": "The Instructor",
+      "pages.histoire.professor_description":
+        "Our main instructor, passionate about African dance for over 10 years, passionately transmits the art of Kizomba, Semba and Afro dances. His benevolent pedagogy and technical expertise allow each student to progress at their own pace in a warm and friendly atmosphere.",
+      "pages.histoire.professor_alt": "Drena Dance dance instructor",
+      "pages.histoire.photos_title": "Our Dance Moments",
+      "pages.histoire.marcio_title":
+        "It all starts with one man: Marcio Adilson Junqueira",
+      "pages.histoire.loading": "Loading photos...",
+      "pages.histoire.no_photos_found":
+        "No photos found in /images/histoire/ folder",
+      "pages.histoire.add_photos_instruction":
+        "Add your photos to the public/images/histoire/ folder",
       "pages.meninos.title": "Meninos do Semba",
       "pages.meninos.intro":
         "A tribute to Angolan culture and the roots of Semba.",
@@ -466,6 +490,18 @@ const resources = {
       "pages.histoire.title": "A história da Drena Dance",
       "pages.histoire.intro":
         "Descubra as origens, os valores e a evolução do nosso clube.",
+      "pages.histoire.professor_title": "O Professor",
+      "pages.histoire.professor_description":
+        "O nosso professor principal, apaixonado pela dança africana há mais de 10 anos, transmite com paixão a arte da Kizomba, do Semba e das danças afro. A sua pedagogia benevolente e expertise técnica permitem que cada aluno progrida ao seu ritmo numa atmosfera calorosa e amigável.",
+      "pages.histoire.professor_alt": "Professor de dança Drena Dance",
+      "pages.histoire.photos_title": "Nossos Momentos de Dança",
+      "pages.histoire.marcio_title":
+        "Tudo começa com um homem: Marcio Adilson Junqueira",
+      "pages.histoire.loading": "Carregando fotos...",
+      "pages.histoire.no_photos_found":
+        "Nenhuma foto encontrada na pasta /images/histoire/",
+      "pages.histoire.add_photos_instruction":
+        "Adicione suas fotos na pasta public/images/histoire/",
       "pages.meninos.title": "Meninos do Semba",
       "pages.meninos.intro":
         "Uma homenagem à cultura angolana e às raízes do Semba.",

@@ -224,11 +224,7 @@ const Header = () => {
           </div>
 
           <motion.div className="nav-brand" whileHover={{ scale: 1.05 }}>
-            <a
-              href="#accueil"
-              className="brand-link"
-              aria-label="Accueil Drena Dance"
-            >
+            <a href="/" className="brand-link" aria-label="Accueil Drena Dance">
               <img
                 src="/images/logo_drena_3.png"
                 alt="Drena Dance Luxembourg"

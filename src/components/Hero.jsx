@@ -65,7 +65,7 @@ const Hero = () => {
               <span className="keyword keyword-3">AFRO</span>
             </h1>
             <p className="hero-description">{t("hero.description")}</p>
-            <a href="#" className="btn btn-primary">
+            <a href="/histoire" className="btn btn-primary">
               {t("hero.button")}
             </a>
           </div>

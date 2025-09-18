@@ -23,9 +23,11 @@
 ## RÈGLES IMPORTANTES
 
 - **TOUJOURS utiliser t('key') pour tout texte visible**
+- **TOUS les textes ajoutés sur le site DOIVENT utiliser t('key') et être définis dans src/i18n.js**
 - Définir les clés dans src/i18n.js (fr/en/pt)
 - Ne jamais toucher Hero/Header sans ordre explicite
 - **PowerShell**: commandes git séparées (pas de &&) - ENVIRONNEMENT WINDOWS
+- **GIT**: Ne jamais pousser sur git sans ordre explicite de l'utilisateur
 - Mobile-first responsive design obligatoire
 
 ## ÉTAT ACTUEL
