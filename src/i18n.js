@@ -8,9 +8,14 @@ const resources = {
       // Header
       menu: "Menu",
       home: "Accueil",
-      courses: "Cours",
+      courses: "Les cours",
       instructors: "Instructeurs",
       contact: "Contact",
+      "menu.histoire": "L'histoire Drena Dance",
+      "menu.meninos": "Meninos do Semba",
+      "menu.afterwork": "After Work",
+      "menu.gallerie": "Gallerie",
+      "menu.agenda": "Agenda",
 
       // Hero
       "hero.title": "DRENA DANCE LUXEMBOURG — KIZOMBA, SEMBA, AFRO",
@@ -118,6 +123,31 @@ const resources = {
 
       // Footer (extended)
       "footer.brand": "Drena Dance",
+      // Pages
+      "pages.histoire.title": "L'histoire de Drena Dance",
+      "pages.histoire.intro":
+        "Découvrez les origines, les valeurs et l'évolution de notre club.",
+      "pages.meninos.title": "Meninos do Semba",
+      "pages.meninos.intro":
+        "Un hommage à la culture angolaise et aux racines du Semba.",
+      "pages.cours.title": "Les Cours",
+      "pages.cours.kizomba": "Kizomba",
+      "pages.cours.semba": "Semba",
+      "pages.cours.afro": "Afro",
+      "pages.cours.kizomba_desc":
+        "Cours de Kizomba pour tous niveaux, axés sur la connexion et la musicalité.",
+      "pages.cours.semba_desc":
+        "Semba traditionnel et moderne, énergie et culture angolaise.",
+      "pages.cours.afro_desc":
+        "Danse afro urbaine, expression, rythme et dynamisme.",
+      "pages.afterwork.title": "Drena Dance After Work",
+      "pages.afterwork.intro":
+        "Des moments conviviaux pour danser, partager et se retrouver.",
+      "pages.gallerie.title": "Gallerie",
+      "pages.gallerie.intro": "Photos et vidéos de nos événements et cours.",
+      "pages.agenda.title": "Agenda",
+      "pages.agenda.intro":
+        "Retrouvez nos dates de cours, after work et événements.",
       "footer.description":
         "Découvrez la passion de la Kizomba avec Drena Dance dans une ambiance chaleureuse et professionnelle. Rejoignez notre communauté de danseurs passionnés.",
       "footer.courses": "Nos Cours",
@@ -152,6 +182,11 @@ const resources = {
       courses: "Courses",
       instructors: "Instructors",
       contact: "Contact",
+      "menu.histoire": "Drena Dance Story",
+      "menu.meninos": "Meninos do Semba",
+      "menu.afterwork": "After Work",
+      "menu.gallerie": "Gallery",
+      "menu.agenda": "Schedule",
 
       // Hero
       "hero.title": "DRENA DANCE LUXEMBOURG — KIZOMBA, SEMBA, AFRO",
@@ -258,6 +293,29 @@ const resources = {
 
       // Footer (extended)
       "footer.brand": "Drena Dance",
+      // Pages
+      "pages.histoire.title": "The Story of Drena Dance",
+      "pages.histoire.intro":
+        "Discover our club’s origins, values and evolution.",
+      "pages.meninos.title": "Meninos do Semba",
+      "pages.meninos.intro":
+        "A tribute to Angolan culture and the roots of Semba.",
+      "pages.cours.title": "Classes",
+      "pages.cours.kizomba": "Kizomba",
+      "pages.cours.semba": "Semba",
+      "pages.cours.afro": "Afro",
+      "pages.cours.kizomba_desc":
+        "Kizomba classes for all levels, focused on connection and musicality.",
+      "pages.cours.semba_desc":
+        "Traditional and modern Semba, energy and Angolan culture.",
+      "pages.cours.afro_desc":
+        "Afro urban dance: expression, rhythm and dynamism.",
+      "pages.afterwork.title": "Drena Dance After Work",
+      "pages.afterwork.intro": "Friendly moments to dance, share and meet.",
+      "pages.gallerie.title": "Gallery",
+      "pages.gallerie.intro": "Photos and videos from our events and classes.",
+      "pages.agenda.title": "Schedule",
+      "pages.agenda.intro": "Find our classes, after-work and event dates.",
       "footer.description":
         "Discover the passion of Kizomba with Drena Dance in a warm and professional atmosphere. Join our community of passionate dancers.",
       "footer.courses": "Our Courses",
@@ -289,9 +347,14 @@ const resources = {
       // Header
       menu: "Menu",
       home: "Início",
-      courses: "Cursos",
+      courses: "Aulas",
       instructors: "Instrutores",
       contact: "Contacto",
+      "menu.histoire": "História Drena Dance",
+      "menu.meninos": "Meninos do Semba",
+      "menu.afterwork": "After Work",
+      "menu.gallerie": "Galeria",
+      "menu.agenda": "Agenda",
 
       // Hero
       "hero.title": "DRENA DANCE LUXEMBOURG — KIZOMBA, SEMBA, AFRO",
@@ -399,6 +462,31 @@ const resources = {
 
       // Footer (extended)
       "footer.brand": "Drena Dance",
+      // Pages
+      "pages.histoire.title": "A história da Drena Dance",
+      "pages.histoire.intro":
+        "Descubra as origens, os valores e a evolução do nosso clube.",
+      "pages.meninos.title": "Meninos do Semba",
+      "pages.meninos.intro":
+        "Uma homenagem à cultura angolana e às raízes do Semba.",
+      "pages.cours.title": "Aulas",
+      "pages.cours.kizomba": "Kizomba",
+      "pages.cours.semba": "Semba",
+      "pages.cours.afro": "Afro",
+      "pages.cours.kizomba_desc":
+        "Aulas de Kizomba para todos os níveis, focadas na ligação e musicalidade.",
+      "pages.cours.semba_desc":
+        "Semba tradicional e moderno, energia e cultura angolana.",
+      "pages.cours.afro_desc":
+        "Dança afro urbana: expressão, ritmo e dinamismo.",
+      "pages.afterwork.title": "Drena Dance After Work",
+      "pages.afterwork.intro":
+        "Momentos convívios para dançar, partilhar e reencontrar.",
+      "pages.gallerie.title": "Galeria",
+      "pages.gallerie.intro": "Fotos e vídeos dos nossos eventos e aulas.",
+      "pages.agenda.title": "Agenda",
+      "pages.agenda.intro":
+        "Encontre as datas das nossas aulas, after work e eventos.",
       "footer.description":
         "Descubra a paixão da Kizomba com a Drena Dance num ambiente acolhedor e profissional. Junte-se à nossa comunidade de dançarinos apaixonados.",
       "footer.courses": "Os nossos cursos",

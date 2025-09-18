@@ -79,8 +79,13 @@ const Header = () => {
   }, [isLanguageDropdownOpen]);
 
   const navItems = [
-    { name: t("home"), href: "#accueil" },
-    { name: t("courses"), href: "#cours" },
+    { name: t("home"), href: "/" },
+    { name: t("menu.histoire"), href: "/histoire" },
+    { name: t("menu.meninos"), href: "/meninos-do-semba" },
+    { name: t("courses"), href: "/cours" },
+    { name: t("menu.afterwork"), href: "/after-work" },
+    { name: t("menu.gallerie"), href: "/gallerie" },
+    { name: t("menu.agenda"), href: "/agenda" },
     { name: t("instructors"), href: "#professeurs" },
     { name: t("contact"), href: "#contact" },
   ];

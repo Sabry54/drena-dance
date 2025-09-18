@@ -1,7 +1,9 @@
 /* Hero Section */
 .hero {
   position: relative;
-  height: 100dvh; /* évite le dépassement sur mobile, utilise la hauteur viewport dynamique */
+  min-height: calc(
+    100dvh - 140px
+  ); /* Hauteur viewport moins la hauteur du header */
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -11,6 +13,8 @@
     #1a1a1a 50%,
     var(--primary-black) 100%
   );
+  padding-top: 140px; /* Compense la hauteur du header fixe + espacement généreux */
+  padding-bottom: 60px; /* Espacement en bas pour que le contenu respire */
 }
 
 .hero-background {
@@ -220,6 +224,12 @@
 
 /* Responsive */
 @media (max-width: 1024px) {
+  .hero {
+    padding-top: 130px; /* Header plus petit sur tablette + espacement généreux */
+    padding-bottom: 50px; /* Espacement en bas tablette */
+    min-height: calc(100dvh - 130px);
+  }
+
   .hero-content {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -239,6 +249,12 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding-top: 120px; /* Header mobile + espacement généreux */
+    padding-bottom: 40px; /* Espacement en bas mobile */
+    min-height: calc(100dvh - 120px);
+  }
+
   .hero-title {
     font-size: 2.5rem;
   }
@@ -271,6 +287,12 @@
 }
 
 @media (max-width: 480px) {
+  .hero {
+    padding-top: 110px; /* Header très petit mobile + espacement généreux */
+    padding-bottom: 30px; /* Espacement en bas petit mobile */
+    min-height: calc(100dvh - 110px);
+  }
+
   .hero-title {
     font-size: 2rem;
   }
@@ -303,23 +325,20 @@
 }
 
 /* === Deux colonnes: texte gauche, vidéo droite === */
-.hero {
-  padding: 80px 0;
-}
 .hero-content.two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: 32px;
+  gap: 48px; /* Plus d'espace entre les colonnes */
 }
 .hero-left {
   color: var(--text-light);
-  padding: 0 16px;
+  padding: 0 24px; /* Plus d'espacement latéral */
 }
 .hero-right {
   display: flex;
   justify-content: center;
-  padding: 0 16px;
+  padding: 0 24px; /* Plus d'espacement latéral */
 }
 .hero-video-box {
   position: relative;
@@ -348,14 +367,14 @@
 @media (max-width: 1024px) {
   .hero-content.two-col {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 40px; /* Espacement maintenu sur tablette */
   }
   .hero-left {
-    padding-right: 0;
+    padding: 0 24px; /* Espacement uniforme */
   }
   .hero-right {
     order: -1;
-    padding-left: 0;
+    padding: 0 24px; /* Espacement uniforme */
   }
 }
 
